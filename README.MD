@@ -11,14 +11,19 @@ It may not work well or even at all. Future releases may break your existing pro
 
 ## First release coming soon
 
-## Prerequisites
-* https://www.blackmagicdesign.com/products/davinciresolve/
-* https://deforum.github.io/
 
 ## Installation
+### Prerequisites
+- https://www.blackmagicdesign.com/products/davinciresolve/
+- https://deforum.github.io/
+### Installing DeforumKeyframer
+- Open DaVinci Resolve, and navigate to the fusion page. 
+- Drag and drop the DeforumKeyframe.drfx file into the fusion page. It should prompt you to install. 
+- Exit and restart DaVinci Resolve.
 
 ## How to use
-First, make sure the FPS in your project settings and timeline settings are set to match the FPS that you will be using in Deforum. 
+First of all, because deforum uses frame numbers rather than timecodes, it is important to make sure that the frame rate in your DaVinci Resolve project settings and timeline settings match the frame rate that is used in Deforum. Unfortunately, Resolve only supports a limited selection of frame rates, so I would recommend going with a standard one like 24.
+
 On the Resolve Edit page, create a solid, precompose it, then drop the DeforumKeyframer macro on it. You can also drop it directly on a video clip if you want.
 You can now work with the plugin from either the Edit page or the Fusion page, whichever you prefer. 
 You can use the controls on the effect's "controls" page to set keyframes. Please note that curves/easing will not transfer over to Deforum!
