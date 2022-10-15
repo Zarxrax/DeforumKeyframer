@@ -16,7 +16,7 @@ Download DeforumKeyframer.drfx from the [releases](https://github.com/Zarxrax/De
 
 ### Installing DeforumKeyframer
 - Open DaVinci Resolve, and navigate to the fusion page. 
-- Drag and drop the DeforumKeyframe.drfx file into the fusion page. It should prompt you to install. 
+- Drag and drop the DeforumKeyframer.drfx file into the fusion page. It should prompt you to install. 
 ![install](images/Install.jpg)
 
 ## How to use
