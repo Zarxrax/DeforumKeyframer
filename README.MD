@@ -24,7 +24,11 @@ It may not work well or even at all. Future releases may break your existing pro
 ## How to use
 First of all, because deforum uses frame numbers rather than timecodes, it is important to make sure that the frame rate in your DaVinci Resolve project settings and timeline settings match the frame rate that is used in Deforum. Unfortunately, Resolve only supports a limited selection of frame rates, so I would recommend going with a standard one like 24.
 
-On the Resolve Edit page, create a solid, precompose it, then drop the DeforumKeyframer macro on it. You can also drop it directly on a video clip if you want.
-You can now work with the plugin from either the Edit page or the Fusion page, whichever you prefer. 
+The effect can be used either on the Edit page or the Fusion page. I recommend working in the Fusion page because it offers more control over your KeyFrames.
+
+### Using on the Edit page
+On the Resolve Edit page, create a solid, precompose it, then drop the DeforumKeyframer effect on it. You can also drop it directly on a video clip if you want.
+
+### Using on the Fusion page
 You can use the controls on the effect's "controls" page to set keyframes. Please note that curves/easing will not transfer over to Deforum!
 If you go to the "output" page and click the execute button, your keyframe data will populate into the various fields. You can copy and paste from these fields into the Deforum notebook.
