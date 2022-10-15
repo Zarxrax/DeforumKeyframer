@@ -1,0 +1,644 @@
+{
+	Tools = ordered() {
+		DeforumKeyframer = MacroOperator {
+			CustomData = {
+                HelpPage = "https://github.com/Zarxrax/DeforumKeyframer",
+            },
+			Inputs = ordered() {
+				MainInput1 = InstanceInput {
+					SourceOp = "Deforum",
+					Source = "Background",
+				},
+				InputPrompt = InstanceInput {
+					SourceOp = "Deforum",
+					Source = "Prompt",
+					Page = "Controls",
+				},
+				InputAngle = InstanceInput {
+					SourceOp = "Deforum",
+					Source = "Angle",
+					Page = "Controls",
+					Default = 0,
+				},
+				InputZoom = InstanceInput {
+					SourceOp = "Deforum",
+					Source = "Zoom",
+					Page = "Controls",
+					Default = 0,
+				},
+				InputTX = InstanceInput {
+					SourceOp = "Deforum",
+					Source = "Translation_x",
+					Page = "Controls",
+					Default = 0,
+				},
+				InputTY = InstanceInput {
+					SourceOp = "Deforum",
+					Source = "Translation_y",
+					Page = "Controls",
+					Default = 0,
+				},				
+				InputTZ = InstanceInput {
+					SourceOp = "Deforum",
+					Source = "Translation_z",
+					Page = "Controls",
+					Default = 0,
+				},
+				InputRX = InstanceInput {
+					SourceOp = "Deforum",
+					Source = "Rotation_x",
+					Page = "Controls",
+					Default = 0,
+				},
+				InputRY = InstanceInput {
+					SourceOp = "Deforum",
+					Source = "Rotation_y",
+					Page = "Controls",
+					Default = 0,
+				},
+				InputRZ = InstanceInput {
+					SourceOp = "Deforum",
+					Source = "Rotation_z",
+					Page = "Controls",
+					Default = 0,
+				},
+				InputTheta = InstanceInput {
+					SourceOp = "Deforum",
+					Source = "PF_Theta",
+					Page = "Controls",
+					Default = 0,
+				},
+				InputPhi = InstanceInput {
+					SourceOp = "Deforum",
+					Source = "PF_Phi",
+					Page = "Controls",
+					Default = 0,
+				},
+				InputGamma = InstanceInput {
+					SourceOp = "Deforum",
+					Source = "PF_Gamma",
+					Page = "Controls",
+					Default = 0,
+				},
+				InputFV = InstanceInput {
+					SourceOp = "Deforum",
+					Source = "PF_FV",
+					Page = "Controls",
+					Default = 0,
+				},
+				InputNoise = InstanceInput {
+					SourceOp = "Deforum",
+					Source = "Noise_schedule",
+					Page = "Controls",
+					Default = 0.02,
+				},
+				InputStrength = InstanceInput {
+					SourceOp = "Deforum",
+					Source = "Strength_schedule",
+					Page = "Controls",
+					Default = 0.65,
+				},
+				InputContrast = InstanceInput {
+					SourceOp = "Deforum",
+					Source = "Contrast_schedule",
+					Page = "Controls",
+					Default = 1,
+				},
+				OutputPrompt = InstanceInput {
+					SourceOp = "Deforum",
+					Source = "prompt_output",
+					Page = "Output",
+				},
+				OutputAngle = InstanceInput {
+					SourceOp = "Deforum",
+					Source = "angle_output",
+					Page = "Output",
+				},
+				OutputZoom = InstanceInput {
+					SourceOp = "Deforum",
+					Source = "zoom_output",
+					Page = "Output",
+				},
+				OutputTX = InstanceInput {
+					SourceOp = "Deforum",
+					Source = "tx_output",
+					Page = "Output",
+				},
+				OutputTY = InstanceInput {
+					SourceOp = "Deforum",
+					Source = "ty_output",
+					Page = "Output",
+				},
+				OutputTZ = InstanceInput {
+					SourceOp = "Deforum",
+					Source = "tz_output",
+					Page = "Output",
+				},
+				OutputRX = InstanceInput {
+					SourceOp = "Deforum",
+					Source = "rx_output",
+					Page = "Output",
+				},
+				OutputRY = InstanceInput {
+					SourceOp = "Deforum",
+					Source = "ry_output",
+					Page = "Output",
+				},
+				OutputRZ = InstanceInput {
+					SourceOp = "Deforum",
+					Source = "rz_output",
+					Page = "Output",
+				},
+				OutputTheta = InstanceInput {
+					SourceOp = "Deforum",
+					Source = "theta_output",
+					Page = "Output",
+				},
+				OutputPhi = InstanceInput {
+					SourceOp = "Deforum",
+					Source = "phi_output",
+					Page = "Output",
+				},
+				OutputGamma = InstanceInput {
+					SourceOp = "Deforum",
+					Source = "gamma_output",
+					Page = "Output",
+				},
+				OutputFV = InstanceInput {
+					SourceOp = "Deforum",
+					Source = "fv_output",
+					Page = "Output",
+				},
+				OutputNoise = InstanceInput {
+					SourceOp = "Deforum",
+					Source = "noise_output",
+					Page = "Output",
+				},
+				OutputStrength = InstanceInput {
+					SourceOp = "Deforum",
+					Source = "strength_output",
+					Page = "Output",
+				},
+				OutputContrast = InstanceInput {
+					SourceOp = "Deforum",
+					Source = "contrast_output",
+					Page = "Output",
+				},				
+				--Input4 = InstanceInput {
+				--	SourceOp = "Deforum",
+				--	Source = "File",
+				--	Page = "Output",
+				--},
+				OutputButton = InstanceInput {
+					SourceOp = "Deforum",
+					Source = "Button",
+					Page = "Output",
+				},
+			},
+			Outputs = {
+				MainOutput1 = InstanceOutput {
+					SourceOp = "Deforum",
+					Source = "Output",
+				}
+			},
+			ViewInfo = GroupInfo { Pos = { 0, 0 } },
+			Tools = ordered() {
+				Deforum = Dissolve {
+					Transitions = {
+						[0] = "DFTDissolve"
+					},
+					CtrlWZoom = false,
+					Inputs = {
+						--Strength_schedule = Input { Value = 0.65, },
+						
+					},
+					ViewInfo = OperatorInfo { Pos = { 495, 49.5 } },
+					UserControls = ordered() {
+						Prompt = {
+							LINKS_Name = "prompt",
+							LINKID_DataType = "Text",
+							INPID_InputControl = "TextEditControl",
+							TEC_Lines = 5,
+							TEC_Wrap = true,
+							TEC_ReadOnly = false,
+							ICS_ControlPage = "Controls",
+						},
+						Angle = {
+							LINKS_Name = "angle",
+							LINKID_DataType = "Number",
+							INPID_InputControl = "ScrewControl",
+							INP_Default = 0,
+							INP_Integer = false,
+							INP_MinScale = -2,
+							INP_MaxScale = 2,
+							INP_MinAllowed = -100,
+							INP_MaxAllowed = 100,
+							ICS_ControlPage = "Controls"
+						},
+						Zoom = {
+							LINKS_Name = "zoom",
+							LINKID_DataType = "Number",
+							INPID_InputControl = "ScrewControl",
+							INP_Default = 0,
+							INP_Integer = false,
+							INP_MinScale = -2,
+							INP_MaxScale = 2,
+							INP_MinAllowed = -100,
+							INP_MaxAllowed = 100,
+							ICS_ControlPage = "Controls"
+						},
+						Translation_x = {
+							LINKS_Name = "translation_x",
+							LINKID_DataType = "Number",
+							INPID_InputControl = "ScrewControl",
+							INP_Default = 0,
+							INP_Integer = false,
+							INP_MinScale = -2,
+							INP_MaxScale = 2,
+							INP_MinAllowed = -100,
+							INP_MaxAllowed = 100,
+							ICS_ControlPage = "Controls"
+						},
+						Translation_y = {
+							LINKS_Name = "translation_y",
+							LINKID_DataType = "Number",
+							INPID_InputControl = "ScrewControl",
+							INP_Default = 0,
+							INP_Integer = false,
+							INP_MinScale = -2,
+							INP_MaxScale = 2,
+							INP_MinAllowed = -100,
+							INP_MaxAllowed = 100,
+							ICS_ControlPage = "Controls"
+						},
+						Translation_z = {
+							LINKS_Name = "translation_z",
+							LINKID_DataType = "Number",
+							INPID_InputControl = "ScrewControl",
+							INP_Default = 0,
+							INP_Integer = false,
+							INP_MinScale = -2,
+							INP_MaxScale = 2,
+							INP_MinAllowed = -100,
+							INP_MaxAllowed = 100,
+							ICS_ControlPage = "Controls"
+						},
+						Rotation_x = {
+							LINKS_Name = "rotation_x",
+							LINKID_DataType = "Number",
+							INPID_InputControl = "ScrewControl",
+							INP_Default = 0,
+							INP_Integer = false,
+							INP_MinScale = -2,
+							INP_MaxScale = 2,
+							INP_MinAllowed = -100,
+							INP_MaxAllowed = 100,
+							ICS_ControlPage = "Controls"
+						},
+						Rotation_y = {
+							LINKS_Name = "rotation_y",
+							LINKID_DataType = "Number",
+							INPID_InputControl = "ScrewControl",
+							INP_Default = 0,
+							INP_Integer = false,
+							INP_MinScale = -2,
+							INP_MaxScale = 2,
+							INP_MinAllowed = -100,
+							INP_MaxAllowed = 100,
+							ICS_ControlPage = "Controls"
+						},
+						Rotation_z = {
+							LINKS_Name = "rotation_z",
+							LINKID_DataType = "Number",
+							INPID_InputControl = "ScrewControl",
+							INP_Default = 0,
+							INP_Integer = false,
+							INP_MinScale = -2,
+							INP_MaxScale = 2,
+							INP_MinAllowed = -100,
+							INP_MaxAllowed = 100,
+							ICS_ControlPage = "Controls"
+						},
+						PF_Theta = {
+							LINKS_Name = "perspective_flip_theta",
+							LINKID_DataType = "Number",
+							INPID_InputControl = "ScrewControl",
+							INP_Default = 0,
+							INP_Integer = false,
+							INP_MinScale = -2,
+							INP_MaxScale = 2,
+							INP_MinAllowed = -100,
+							INP_MaxAllowed = 100,
+							ICS_ControlPage = "Controls"
+						},
+						PF_Phi = {
+							LINKS_Name = "perspective_flip_phi",
+							LINKID_DataType = "Number",
+							INPID_InputControl = "ScrewControl",
+							INP_Default = 0,
+							INP_Integer = false,
+							INP_MinScale = -2,
+							INP_MaxScale = 2,
+							INP_MinAllowed = -100,
+							INP_MaxAllowed = 100,
+							ICS_ControlPage = "Controls"
+						},
+						PF_Gamma = {
+							LINKS_Name = "perspective_flip_gamma",
+							LINKID_DataType = "Number",
+							INPID_InputControl = "ScrewControl",
+							INP_Default = 0,
+							INP_Integer = false,
+							INP_MinScale = -2,
+							INP_MaxScale = 2,
+							INP_MinAllowed = -100,
+							INP_MaxAllowed = 100,
+							ICS_ControlPage = "Controls"
+						},
+						PF_FV = {
+							LINKS_Name = "perspective_flip_fv",
+							LINKID_DataType = "Number",
+							INPID_InputControl = "ScrewControl",
+							INP_Default = 0,
+							INP_Integer = false,
+							INP_MinScale = -2,
+							INP_MaxScale = 2,
+							INP_MinAllowed = -100,
+							INP_MaxAllowed = 100,
+							ICS_ControlPage = "Controls"
+						},
+						Noise_schedule = {
+							LINKS_Name = "noise_schedule",
+							LINKID_DataType = "Number",
+							INPID_InputControl = "ScrewControl",
+							INP_Default = 0.02,
+							INP_Integer = false,
+							INP_MinScale = 0,
+							INP_MaxScale = 1,
+							INP_MinAllowed = 0,
+							INP_MaxAllowed = 1,
+							ICS_ControlPage = "Controls"
+						},
+						Strength_schedule = {
+							LINKS_Name = "strength_schedule",
+							LINKID_DataType = "Number",
+							INPID_InputControl = "ScrewControl",
+							INP_Default = 0.65,
+							INP_Integer = false,
+							INP_MinScale = 0,
+							INP_MaxScale = 1,
+							INP_MinAllowed = 0,
+							INP_MaxAllowed = 1,
+							ICS_ControlPage = "Controls"
+						},
+						Contrast_schedule = {
+							LINKS_Name = "contrast_schedule",
+							LINKID_DataType = "Number",
+							INPID_InputControl = "ScrewControl",
+							INP_Default = 1,
+							INP_Integer = false,
+							INP_MinScale = 0,
+							INP_MaxScale = 1,
+							INP_MinAllowed = 0,
+							INP_MaxAllowed = 1,
+							ICS_ControlPage = "Controls"
+						},
+						prompt_output = {
+							LINKS_Name = "prompt",
+							LINKID_DataType = "Text",
+							INPID_InputControl = "TextEditControl",
+							TEC_Lines = 5,
+							TEC_Wrap = false,
+							TEC_ReadOnly = false,
+							INP_External = false,
+						},
+						angle_output = {
+							LINKS_Name = "angle",
+							LINKID_DataType = "Text",
+							INPID_InputControl = "TextEditControl",
+							TEC_Lines = 1,
+							TEC_Wrap = false,
+							TEC_ReadOnly = false,
+							INP_External = false,
+						},
+						zoom_output = {
+							LINKS_Name = "zoom",
+							LINKID_DataType = "Text",
+							INPID_InputControl = "TextEditControl",
+							TEC_Lines = 1,
+							TEC_Wrap = false,
+							TEC_ReadOnly = false,
+							INP_External = false,
+						},
+						tx_output = {
+							LINKS_Name = "translation_x",
+							LINKID_DataType = "Text",
+							INPID_InputControl = "TextEditControl",
+							TEC_Lines = 1,
+							TEC_Wrap = false,
+							TEC_ReadOnly = false,
+							INP_External = false,
+						},
+						ty_output = {
+							LINKS_Name = "translation_y",
+							LINKID_DataType = "Text",
+							INPID_InputControl = "TextEditControl",
+							TEC_Lines = 1,
+							TEC_Wrap = false,
+							TEC_ReadOnly = false,
+							INP_External = false,
+						},
+						tz_output = {
+							LINKS_Name = "translation_z",
+							LINKID_DataType = "Text",
+							INPID_InputControl = "TextEditControl",
+							TEC_Lines = 1,
+							TEC_Wrap = false,
+							TEC_ReadOnly = false,
+							INP_External = false,
+						},
+						rx_output = {
+							LINKS_Name = "rotation_x",
+							LINKID_DataType = "Text",
+							INPID_InputControl = "TextEditControl",
+							TEC_Lines = 1,
+							TEC_Wrap = false,
+							TEC_ReadOnly = false,
+							INP_External = false,
+						},
+						ry_output = {
+							LINKS_Name = "rotation_y",
+							LINKID_DataType = "Text",
+							INPID_InputControl = "TextEditControl",
+							TEC_Lines = 1,
+							TEC_Wrap = false,
+							TEC_ReadOnly = false,
+							INP_External = false,
+						},
+						rz_output = {
+							LINKS_Name = "rotation_z",
+							LINKID_DataType = "Text",
+							INPID_InputControl = "TextEditControl",
+							TEC_Lines = 1,
+							TEC_Wrap = false,
+							TEC_ReadOnly = false,
+							INP_External = false,
+						},
+						theta_output = {
+							LINKS_Name = "perspective_flip_theta",
+							LINKID_DataType = "Text",
+							INPID_InputControl = "TextEditControl",
+							TEC_Lines = 1,
+							TEC_Wrap = false,
+							TEC_ReadOnly = false,
+							INP_External = false,
+						},
+						phi_output = {
+							LINKS_Name = "perspective_flip_phi",
+							LINKID_DataType = "Text",
+							INPID_InputControl = "TextEditControl",
+							TEC_Lines = 1,
+							TEC_Wrap = false,
+							TEC_ReadOnly = false,
+							INP_External = false,
+						},
+						gamma_output = {
+							LINKS_Name = "perspective_flip_gamma",
+							LINKID_DataType = "Text",
+							INPID_InputControl = "TextEditControl",
+							TEC_Lines = 1,
+							TEC_Wrap = false,
+							TEC_ReadOnly = false,
+							INP_External = false,
+						},
+						fv_output = {
+							LINKS_Name = "perspective_flip_fv",
+							LINKID_DataType = "Text",
+							INPID_InputControl = "TextEditControl",
+							TEC_Lines = 1,
+							TEC_Wrap = false,
+							TEC_ReadOnly = false,
+							INP_External = false,
+						},
+						noise_output = {
+							LINKS_Name = "noise_schedule",
+							LINKID_DataType = "Text",
+							INPID_InputControl = "TextEditControl",
+							TEC_Lines = 1,
+							TEC_Wrap = false,
+							TEC_ReadOnly = false,
+							INP_External = false,
+						},
+						strength_output = {
+							LINKS_Name = "strength_schedule",
+							LINKID_DataType = "Text",
+							INPID_InputControl = "TextEditControl",
+							TEC_Lines = 1,
+							TEC_Wrap = false,
+							TEC_ReadOnly = false,
+							INP_External = false,
+						},
+						contrast_output = {
+							LINKS_Name = "contrast_schedule",
+							LINKID_DataType = "Text",
+							INPID_InputControl = "TextEditControl",
+							TEC_Lines = 1,
+							TEC_Wrap = false,
+							TEC_ReadOnly = false,
+							INP_External = false,
+						},
+						--File = {
+						--	LINKS_Name = "File",
+						--	LINKID_DataType = "Text",
+						--	INPID_InputControl = "FileControl",
+						--	INP_External = false,
+						--},
+						Button = {
+							LINKS_Name = "Execute",
+							LINKID_DataType = "Number",
+							INPID_InputControl = "ButtonControl",
+							INP_Integer = false,
+							INP_External = false,
+							--BTNCS_Execute = "@Scripts:\\Tool\\DeforumKeyframer.lua",
+							BTNCS_Execute = [[
+comp:Lock()
+local spline, splineout, splinedata
+local Prompt_string, Angle_string, Zoom_string, TX_string, TY_string, TZ_string, RX_string, RY_string, RZ_string, Theta_string, Phi_string, Gamma_string, FV_string, Noise_string, Strength_string, Contrast_string = "","","","","","","","","","","","","","","",""
+
+local function KeyframesToString(outstring) --function to get list of keyframes and values and output to a string. Operates on variable 'splineout' which contains a reference to the input name
+	local Key_table = {}
+	if splineout then
+		spline = splineout:GetTool()
+		splinedata = spline:GetKeyFrames()
+		for i, tool in pairs(splinedata) do -- i is frame number, need to copy the frame numbers into a new table which can be sorted
+			table.insert(Key_table, i)
+		end
+		table.sort(Key_table)
+		for i, key in ipairs(Key_table) do -- key is frame number, splinedata[key][1] is the value
+			outstring = outstring .. key .. ":(" .. splinedata[key][1] .. "), "
+		end
+		outstring = outstring:sub(1, -3) --remove final comma and space
+	end
+	return(outstring)
+end
+
+local function PromptToString(outstring) --function to get list of keyframes and and prompts, sort them, and output to a string.
+	local Key_table = {}
+	splineout = tool.InputPrompt:GetConnectedOutput()
+	if splineout then
+		spline = splineout:GetTool()
+		splinedata = spline:GetKeyFrames()
+		for i, tool in pairs(splinedata) do -- i is frame number, need to copy the frame numbers into a new table which can be sorted
+			table.insert(Key_table, i)
+		end
+		table.sort(Key_table)
+		for i, key in ipairs(Key_table) do -- key is frame number, splineout[key] is the prompt
+			outstring = outstring .. key .. ": \"" .. splineout[key] .. "\"\n"
+		end
+	end
+	return(outstring)
+end
+
+Prompt_string = PromptToString(Prompt_string)
+splineout = tool.InputAngle:GetConnectedOutput() ; Angle_string = KeyframesToString(Angle_string)
+splineout = tool.InputZoom:GetConnectedOutput() ; Zoom_string = KeyframesToString(Zoom_string)
+splineout = tool.InputTX:GetConnectedOutput() ; TX_string = KeyframesToString(TX_string)
+splineout = tool.InputTY:GetConnectedOutput() ; TY_string = KeyframesToString(TY_string)
+splineout = tool.InputTZ:GetConnectedOutput() ; TZ_string = KeyframesToString(TZ_string)
+splineout = tool.InputRX:GetConnectedOutput() ; RX_string = KeyframesToString(RX_string)
+splineout = tool.InputRY:GetConnectedOutput() ; RY_string = KeyframesToString(RY_string)
+splineout = tool.InputRZ:GetConnectedOutput() ; RZ_string = KeyframesToString(RZ_string)
+splineout = tool.InputTheta:GetConnectedOutput() ; Theta_string = KeyframesToString(Theta_string)
+splineout = tool.InputPhi:GetConnectedOutput() ; Phi_string = KeyframesToString(Phi_string)
+splineout = tool.InputGamma:GetConnectedOutput() ; Gamma_string = KeyframesToString(Gamma_string)
+splineout = tool.InputFV:GetConnectedOutput() ; FV_string = KeyframesToString(FV_string)
+splineout = tool.InputNoise:GetConnectedOutput() ; Noise_string = KeyframesToString(Noise_string)
+splineout = tool.InputStrength:GetConnectedOutput() ; Strength_string = KeyframesToString(Strength_string)
+splineout = tool.InputContrast:GetConnectedOutput() ; Contrast_string = KeyframesToString(Contrast_string)
+
+tool.OutputPrompt = Prompt_string
+tool.OutputAngle = Angle_string
+tool.OutputZoom = Zoom_string
+tool.OutputTX = TX_string
+tool.OutputTY = TY_string
+tool.OutputTZ = TZ_string
+tool.OutputRX = RX_string
+tool.OutputRY = RY_string
+tool.OutputRZ = RZ_string
+tool.OutputTheta = Theta_string
+tool.OutputPhi = Phi_string
+tool.OutputGamma = Gamma_string
+tool.OutputFV = FV_string
+tool.OutputNoise = Noise_string
+tool.OutputStrength = Strength_string
+tool.OutputContrast = Contrast_string
+comp:Unlock()
+							]],
+						}
+					}
+				}
+			},
+		}
+	},
+	ActiveTool = "DeforumKeyframer"
+}
