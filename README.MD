@@ -12,6 +12,7 @@ This does not bring Stable Diffusion into Davinci Resolve. It simply generates a
 - https://deforum.github.io/
 
 ### Download
+Download DeforumKeyframer.drfx from the [releases](https://github.com/Zarxrax/DeforumKeyframer/releases) page
 
 ### Installing DeforumKeyframer
 - Open DaVinci Resolve, and navigate to the fusion page. 
@@ -26,8 +27,14 @@ If you want to use it on the Edit page, the easiest way is to create a new compo
 You can use the controls on the effect's "controls" page to set keyframes. Please note that curves/easing will not transfer over to Deforum!
 If you go to the "output" page and click the execute button, your keyframe data will populate into the various fields. You can copy and paste from these fields into the Deforum notebook.
 
+![controls](images/Controls.jpg) ![output](images/Output.jpg)
+
 ## Roadmap
 Future plans include:
 - Make additional versions that only expose either 2D or 3D controls
 - Look for workarounds to support more frame rates
 - Investigate different workflows to determine pros and cons of using on the Edit page vs the Fusion page
+
+## Source Code
+All code is in the file DeforumKeyframer.setting
+It is a Fusion macro written in Lua.
