@@ -593,7 +593,7 @@ local function PromptToString(outstring) --function to get list of keyframes and
 		end
 		table.sort(Key_table)
 		for i, key in ipairs(Key_table) do -- key is frame number, splineout[key] is the prompt
-			outstring = outstring .. key .. ": \"" .. splineout[key] .. "\"\n"
+			outstring = outstring .. key .. ": \"" .. splineout[key] .. "\",\n"
 		end
 	end
 	return(outstring)
