@@ -35,7 +35,7 @@ From the Edit page, create a new Solid Color (from the effects menu, Generators 
 You can use the controls on the effect's "controls" page to set keyframes. Please note that curves/easing will not transfer over to Deforum!
 If you go to the "output" page and click the execute button, your keyframe data will populate into the various fields. You can copy and paste from these fields into the Deforum notebook.
 
-![controls](images/Controls.jpg | width=50) ![output](images/Output.jpg | width=50)
+![controls](images/Controls.jpg) ![output](images/Output.jpg)
 
 ### Working at a lower frame rate
 If you prefer to use a frame rate that is lower than what resolve supports, then we can achieve this by adjusting the clip speed settings.
