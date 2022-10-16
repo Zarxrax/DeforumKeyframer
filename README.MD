@@ -35,13 +35,13 @@ From the Edit page, create a new Solid Color (from the effects menu, Generators 
 You can use the controls on the effect's "controls" page to set keyframes. Please note that curves/easing will not transfer over to Deforum!
 If you go to the "output" page and click the execute button, your keyframe data will populate into the various fields. You can copy and paste from these fields into the Deforum notebook.
 
-![controls](images/Controls.jpg) ![output](images/Output.jpg)
+![controls](images/Controls.jpg | width=50) ![output](images/Output.jpg | width=50)
 
 ### Working at a lower frame rate
 If you prefer to use a frame rate that is lower than what resolve supports, then we can achieve this by adjusting the clip speed settings.
 All you need to do is right click on the clip that the DeforumKeyframer effect was applied to, and select "change clip speed". Here, change the fps to match what you will be using in Deforum. To avoid confusion, I strongly recommend that you only select a number that is evenly divisible by your project framerate.
 While working like this, make sure not to place keyframes on adjacent frames, because it is likely that one of them will end up missing. For example, if your project is 24 frames per second, but you are working with a 12 frames per second clip, resolve will still actually display all 24 frames on the timeline, but only half of those frames can have unique keyframes! 
-
+![speed](images/Speed.jpg)
 
 ## Roadmap
 Future plans currently include:
