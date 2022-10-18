@@ -14,18 +14,6 @@
 					Source = "Prompt",
 					Page = "Controls",
 				},
-				InputAngle = InstanceInput {
-					SourceOp = "Deforum",
-					Source = "Angle",
-					Page = "Controls",
-					Default = 0,
-				},
-				InputZoom = InstanceInput {
-					SourceOp = "Deforum",
-					Source = "Zoom",
-					Page = "Controls",
-					Default = 0,
-				},
 				InputTX = InstanceInput {
 					SourceOp = "Deforum",
 					Source = "Translation_x",
@@ -37,7 +25,12 @@
 					Source = "Translation_y",
 					Page = "Controls",
 					Default = 0,
-				},				
+				},
+				InputThreeD_Nest = InstanceInput {
+					SourceOp = "Deforum",
+					Source = "ThreeD_Nest",
+					Page = "Controls",
+				},
 				InputTZ = InstanceInput {
 					SourceOp = "Deforum",
 					Source = "Translation_z",
@@ -59,6 +52,23 @@
 				InputRZ = InstanceInput {
 					SourceOp = "Deforum",
 					Source = "Rotation_z",
+					Page = "Controls",
+					Default = 0,
+				},
+				InputTwoD_Nest = InstanceInput {
+					SourceOp = "Deforum",
+					Source = "TwoD_Nest",
+					Page = "Controls",
+				},
+				InputAngle = InstanceInput {
+					SourceOp = "Deforum",
+					Source = "Angle",
+					Page = "Controls",
+					Default = 0,
+				},
+				InputZoom = InstanceInput {
+					SourceOp = "Deforum",
+					Source = "Zoom",
 					Page = "Controls",
 					Default = 0,
 				},
@@ -86,6 +96,11 @@
 					Page = "Controls",
 					Default = 0,
 				},
+				InputGen_Nest = InstanceInput {
+					SourceOp = "Deforum",
+					Source = "Gen_Nest",
+					Page = "Controls",
+				},
 				InputNoise = InstanceInput {
 					SourceOp = "Deforum",
 					Source = "Noise_schedule",
@@ -103,6 +118,18 @@
 					Source = "Contrast_schedule",
 					Page = "Controls",
 					Default = 1,
+				},
+				InputCfg = InstanceInput {
+					SourceOp = "Deforum",
+					Source = "CFG_schedule",
+					Page = "Controls",
+					Default = 7,
+				},
+				InputSeed = InstanceInput {
+					SourceOp = "Deforum",
+					Source = "Seed_schedule",
+					Page = "Controls",
+					Default = 0,
 				},
 				OutputPrompt = InstanceInput {
 					SourceOp = "Deforum",
@@ -183,12 +210,17 @@
 					SourceOp = "Deforum",
 					Source = "contrast_output",
 					Page = "Output",
+				},		
+				OutputCfg = InstanceInput {
+					SourceOp = "Deforum",
+					Source = "cfg_output",
+					Page = "Output",
+				},
+				OutputSeed = InstanceInput {
+					SourceOp = "Deforum",
+					Source = "seed_output",
+					Page = "Output",
 				},				
-				--Input4 = InstanceInput {
-				--	SourceOp = "Deforum",
-				--	Source = "File",
-				--	Page = "Output",
-				--},
 				OutputButton = InstanceInput {
 					SourceOp = "Deforum",
 					Source = "Button",
@@ -209,7 +241,6 @@
 					},
 					CtrlWZoom = false,
 					Inputs = {
-						--Strength_schedule = Input { Value = 0.65, },
 						
 					},
 					ViewInfo = OperatorInfo { Pos = { 495, 49.5 } },
@@ -222,30 +253,6 @@
 							TEC_Wrap = true,
 							TEC_ReadOnly = false,
 							ICS_ControlPage = "Controls",
-						},
-						Angle = {
-							LINKS_Name = "angle",
-							LINKID_DataType = "Number",
-							INPID_InputControl = "ScrewControl",
-							INP_Default = 0,
-							INP_Integer = false,
-							INP_MinScale = -2,
-							INP_MaxScale = 2,
-							INP_MinAllowed = -100,
-							INP_MaxAllowed = 100,
-							ICS_ControlPage = "Controls"
-						},
-						Zoom = {
-							LINKS_Name = "zoom",
-							LINKID_DataType = "Number",
-							INPID_InputControl = "ScrewControl",
-							INP_Default = 0,
-							INP_Integer = false,
-							INP_MinScale = -2,
-							INP_MaxScale = 2,
-							INP_MinAllowed = -100,
-							INP_MaxAllowed = 100,
-							ICS_ControlPage = "Controls"
 						},
 						Translation_x = {
 							LINKS_Name = "translation_x",
@@ -270,6 +277,14 @@
 							INP_MinAllowed = -100,
 							INP_MaxAllowed = 100,
 							ICS_ControlPage = "Controls"
+						},
+						ThreeD_Nest = {
+							INPID_InputControl = "LabelControl",
+							LINKS_Name = "3D Controls",		
+							LBLC_DropDownButton = true,		
+							LBLC_NumInputs = 4,			
+							INP_Default = 1,			
+							ICS_ControlPage = "Controls",
 						},
 						Translation_z = {
 							LINKS_Name = "translation_z",
@@ -309,6 +324,38 @@
 						},
 						Rotation_z = {
 							LINKS_Name = "rotation_z",
+							LINKID_DataType = "Number",
+							INPID_InputControl = "ScrewControl",
+							INP_Default = 0,
+							INP_Integer = false,
+							INP_MinScale = -2,
+							INP_MaxScale = 2,
+							INP_MinAllowed = -100,
+							INP_MaxAllowed = 100,
+							ICS_ControlPage = "Controls"
+						},
+						TwoD_Nest = {
+							INPID_InputControl = "LabelControl",
+							LINKS_Name = "2D Controls",		
+							LBLC_DropDownButton = true,		
+							LBLC_NumInputs = 6,			
+							INP_Default = 1,			
+							ICS_ControlPage = "Controls",
+						},
+						Angle = {
+							LINKS_Name = "angle",
+							LINKID_DataType = "Number",
+							INPID_InputControl = "ScrewControl",
+							INP_Default = 0,
+							INP_Integer = false,
+							INP_MinScale = -2,
+							INP_MaxScale = 2,
+							INP_MinAllowed = -100,
+							INP_MaxAllowed = 100,
+							ICS_ControlPage = "Controls"
+						},
+						Zoom = {
+							LINKS_Name = "zoom",
 							LINKID_DataType = "Number",
 							INPID_InputControl = "ScrewControl",
 							INP_Default = 0,
@@ -367,6 +414,14 @@
 							INP_MaxAllowed = 100,
 							ICS_ControlPage = "Controls"
 						},
+						Gen_Nest = {
+							INPID_InputControl = "LabelControl",
+							LINKS_Name = "Generation Controls",		
+							LBLC_DropDownButton = true,		
+							LBLC_NumInputs = 5,			
+							INP_Default = 1,		
+							ICS_ControlPage = "Controls",
+						},
 						Noise_schedule = {
 							LINKS_Name = "noise_schedule",
 							LINKID_DataType = "Number",
@@ -401,6 +456,30 @@
 							INP_MaxScale = 1,
 							INP_MinAllowed = 0,
 							INP_MaxAllowed = 1,
+							ICS_ControlPage = "Controls"
+						},
+						CFG_schedule = {
+							LINKS_Name = "cfg_scale_schedule",
+							LINKID_DataType = "Number",
+							INPID_InputControl = "ScrewControl",
+							INP_Default = 7,
+							INP_Integer = false,
+							INP_MinScale = 1,
+							INP_MaxScale = 30,
+							INP_MinAllowed = 1,
+							INP_MaxAllowed = 30,
+							ICS_ControlPage = "Controls"
+						},
+						Seed_schedule = {
+							LINKS_Name = "seed_schedule",
+							LINKID_DataType = "Number",
+							INPID_InputControl = "ScrewControl",
+							INP_Default = 0,
+							INP_Integer = true,
+							INP_MinScale = 0,
+							INP_MaxScale = 100,
+							INP_MinAllowed = 0,
+							INP_MaxAllowed = 4294967293,
 							ICS_ControlPage = "Controls"
 						},
 						prompt_output = {
@@ -547,23 +626,34 @@
 							TEC_ReadOnly = false,
 							INP_External = false,
 						},
-						--File = {
-						--	LINKS_Name = "File",
-						--	LINKID_DataType = "Text",
-						--	INPID_InputControl = "FileControl",
-						--	INP_External = false,
-						--},
+						cfg_output = {
+							LINKS_Name = "cfg_scale_schedule",
+							LINKID_DataType = "Text",
+							INPID_InputControl = "TextEditControl",
+							TEC_Lines = 1,
+							TEC_Wrap = false,
+							TEC_ReadOnly = false,
+							INP_External = false,
+						},
+						seed_output = {
+							LINKS_Name = "seed_schedule",
+							LINKID_DataType = "Text",
+							INPID_InputControl = "TextEditControl",
+							TEC_Lines = 1,
+							TEC_Wrap = false,
+							TEC_ReadOnly = false,
+							INP_External = false,
+						},
 						Button = {
 							LINKS_Name = "Execute",
 							LINKID_DataType = "Number",
 							INPID_InputControl = "ButtonControl",
 							INP_Integer = false,
 							INP_External = false,
-							--BTNCS_Execute = "@Scripts:\\Tool\\DeforumKeyframer.lua",
 							BTNCS_Execute = [[
 comp:Lock()
 local spline, splineout, splinedata
-local Prompt_string, Angle_string, Zoom_string, TX_string, TY_string, TZ_string, RX_string, RY_string, RZ_string, Theta_string, Phi_string, Gamma_string, FV_string, Noise_string, Strength_string, Contrast_string = "","","","","","","","","","","","","","","",""
+local Prompt_string, Angle_string, Zoom_string, TX_string, TY_string, TZ_string, RX_string, RY_string, RZ_string, Theta_string, Phi_string, Gamma_string, FV_string, Noise_string, Strength_string, Contrast_string, Cfg_string, Seed_string = "","","","","","","","","","","","","","","","","",""
 
 local function KeyframesToString(outstring) --function to get list of keyframes and values and output to a string. Operates on variable 'splineout' which contains a reference to the input name
 	local Key_table = {}
@@ -571,7 +661,9 @@ local function KeyframesToString(outstring) --function to get list of keyframes 
 		spline = splineout:GetTool()
 		splinedata = spline:GetKeyFrames()
 		for i, tool in pairs(splinedata) do -- i is frame number, need to copy the frame numbers into a new table which can be sorted
-			table.insert(Key_table, i)
+			if i >= 0 then --ignore any negative frame numbers
+				table.insert(Key_table, math.floor(i)) --if the frame number has decimals, truncate them
+			end
 		end
 		table.sort(Key_table)
 		for i, key in ipairs(Key_table) do -- key is frame number, splinedata[key][1] is the value
@@ -589,12 +681,15 @@ local function PromptToString(outstring) --function to get list of keyframes and
 		spline = splineout:GetTool()
 		splinedata = spline:GetKeyFrames()
 		for i, tool in pairs(splinedata) do -- i is frame number, need to copy the frame numbers into a new table which can be sorted
-			table.insert(Key_table, i)
+			if i >= 0 then --ignore any negative frame numbers
+				table.insert(Key_table, math.floor(i)) --if the frame number has decimals, truncate them
+			end
 		end
 		table.sort(Key_table)
 		for i, key in ipairs(Key_table) do -- key is frame number, splineout[key] is the prompt
-			outstring = outstring .. key .. ": \"" .. splineout[key] .. "\",\n"
+			outstring = outstring .. "\"" .. key .."\"" .. ": \"" .. splineout[key] .. "\",\n"
 		end
+		outstring = outstring:sub(1, -3) --remove final comma and newline
 	end
 	return(outstring)
 end
@@ -615,6 +710,8 @@ splineout = tool.InputFV:GetConnectedOutput() ; FV_string = KeyframesToString(FV
 splineout = tool.InputNoise:GetConnectedOutput() ; Noise_string = KeyframesToString(Noise_string)
 splineout = tool.InputStrength:GetConnectedOutput() ; Strength_string = KeyframesToString(Strength_string)
 splineout = tool.InputContrast:GetConnectedOutput() ; Contrast_string = KeyframesToString(Contrast_string)
+splineout = tool.InputCfg:GetConnectedOutput() ; Cfg_string = KeyframesToString(Cfg_string)
+splineout = tool.InputSeed:GetConnectedOutput() ; Seed_string = KeyframesToString(Seed_string)
 
 tool.OutputPrompt = Prompt_string
 tool.OutputAngle = Angle_string
@@ -632,6 +729,8 @@ tool.OutputFV = FV_string
 tool.OutputNoise = Noise_string
 tool.OutputStrength = Strength_string
 tool.OutputContrast = Contrast_string
+tool.OutputCfg = Cfg_string
+tool.OutputSeed = Seed_string
 comp:Unlock()
 							]],
 						}
