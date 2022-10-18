@@ -1,5 +1,12 @@
 # DeforumKeyframer
 
+## What's New
+[Version 0.2](https://github.com/Zarxrax/DeforumKeyframer/releases/tag/v0.2)
+- Added new controls: cfg_scale_schedule and seed_schedule
+- Changed prompt format to be compatible with Deforum for AUTOMATIC1111
+- Moved some controls into collapsible groups
+- Bugfixes
+
 ## What this is
 This is a macro for Davinci Resolve/Fusion to assist with creating keyframes for Deforum Stable Diffusion. You can view your keyframes on the timeline, making it easier to visualize your animation or synchronize to music and video.
 
@@ -43,10 +50,5 @@ All you need to do is right click on the clip that the DeforumKeyframer effect w
 While working like this, make sure not to place keyframes on adjacent frames, because it is likely that one of them will end up missing. For example, if your project is 24 frames per second, but you are working with a 12 frames per second clip, resolve will still actually display all 24 frames on the timeline, but only half of those frames can have unique keyframes! 
 ![speed](images/Speed.jpg)
 
-## Roadmap
-Future plans currently include:
-- Make additional versions that only expose either 2D or 3D controls
-
 ## Source Code
-All code is in the file DeforumKeyframer.setting
-It is a Fusion macro written in Lua.
+All code is in the DeforumKeyframer.setting file. It is a Fusion macro written in Lua.
