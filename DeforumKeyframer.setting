@@ -55,6 +55,29 @@
 					Page = "Controls",
 					Default = 0,
 				},
+				InputFOV_Nest = InstanceInput {
+					SourceOp = "Deforum",
+					Source = "FOV_Nest",
+					Page = "Controls",
+				},
+				InputFOV = InstanceInput {
+					SourceOp = "Deforum",
+					Source = "FOV_schedule",
+					Page = "Controls",
+					Default = 40,
+				},
+				InputNear = InstanceInput {
+					SourceOp = "Deforum",
+					Source = "Near_schedule",
+					Page = "Controls",
+					Default = 200,
+				},
+				InputFar = InstanceInput {
+					SourceOp = "Deforum",
+					Source = "Far_schedule",
+					Page = "Controls",
+					Default = 10000,
+				},				
 				InputTwoD_Nest = InstanceInput {
 					SourceOp = "Deforum",
 					Source = "TwoD_Nest",
@@ -216,6 +239,21 @@
 					Source = "cfg_output",
 					Page = "Output",
 				},
+				OutputFOV = InstanceInput {
+					SourceOp = "Deforum",
+					Source = "fov_output",
+					Page = "Output",
+				},
+				OutputNear = InstanceInput {
+					SourceOp = "Deforum",
+					Source = "near_output",
+					Page = "Output",
+				},		
+				OutputFar = InstanceInput {
+					SourceOp = "Deforum",
+					Source = "far_output",
+					Page = "Output",
+				},
 				OutputSeed = InstanceInput {
 					SourceOp = "Deforum",
 					Source = "seed_output",
@@ -334,6 +372,50 @@
 							INP_MaxAllowed = 100,
 							ICS_ControlPage = "Controls"
 						},
+						FOV_Nest = {
+							INPID_InputControl = "LabelControl",
+							LINKS_Name = "3D FOV Controls",		
+							LBLC_DropDownButton = true,		
+							LBLC_NumInputs = 3,			
+							INP_Default = 1,			
+							ICS_ControlPage = "Controls",
+						},
+						FOV_schedule = {
+							LINKS_Name = "fov_schedule",
+							LINKID_DataType = "Number",
+							INPID_InputControl = "ScrewControl",
+							INP_Default = 40,
+							INP_Integer = false,
+							INP_MinScale = -10,
+							INP_MaxScale = 10,
+							INP_MinAllowed = -1000,
+							INP_MaxAllowed = 1000,
+							ICS_ControlPage = "Controls"
+						},
+						Near_schedule = {
+							LINKS_Name = "near_schedule",
+							LINKID_DataType = "Number",
+							INPID_InputControl = "ScrewControl",
+							INP_Default = 200,
+							INP_Integer = true,
+							INP_MinScale = -100,
+							INP_MaxScale = 100,
+							INP_MinAllowed = -100000,
+							INP_MaxAllowed = 100000,
+							ICS_ControlPage = "Controls"
+						},
+						Far_schedule = {
+							LINKS_Name = "far_schedule",
+							LINKID_DataType = "Number",
+							INPID_InputControl = "ScrewControl",
+							INP_Default = 10000,
+							INP_Integer = true,
+							INP_MinScale = -1000,
+							INP_MaxScale = 1000,
+							INP_MinAllowed = -100000,
+							INP_MaxAllowed = 100000,
+							ICS_ControlPage = "Controls"
+						},
 						TwoD_Nest = {
 							INPID_InputControl = "LabelControl",
 							LINKS_Name = "2D Controls",		
@@ -426,7 +508,7 @@
 							LINKS_Name = "noise_schedule",
 							LINKID_DataType = "Number",
 							INPID_InputControl = "ScrewControl",
-							INP_Default = 0.02,
+							INP_Default = 0.08,
 							INP_Integer = false,
 							INP_MinScale = 0,
 							INP_MaxScale = 1,
@@ -438,7 +520,7 @@
 							LINKS_Name = "strength_schedule",
 							LINKID_DataType = "Number",
 							INPID_InputControl = "ScrewControl",
-							INP_Default = 0.65,
+							INP_Default = 0.6,
 							INP_Integer = false,
 							INP_MinScale = 0,
 							INP_MaxScale = 1,
@@ -455,7 +537,7 @@
 							INP_MinScale = 0,
 							INP_MaxScale = 1,
 							INP_MinAllowed = 0,
-							INP_MaxAllowed = 1,
+							INP_MaxAllowed = 100,
 							ICS_ControlPage = "Controls"
 						},
 						CFG_schedule = {
@@ -465,9 +547,9 @@
 							INP_Default = 7,
 							INP_Integer = false,
 							INP_MinScale = 1,
-							INP_MaxScale = 30,
+							INP_MaxScale = 10,
 							INP_MinAllowed = 1,
-							INP_MaxAllowed = 30,
+							INP_MaxAllowed = 100,
 							ICS_ControlPage = "Controls"
 						},
 						Seed_schedule = {
@@ -635,6 +717,33 @@
 							TEC_ReadOnly = false,
 							INP_External = false,
 						},
+						fov_output = {
+							LINKS_Name = "fov_schedule",
+							LINKID_DataType = "Text",
+							INPID_InputControl = "TextEditControl",
+							TEC_Lines = 1,
+							TEC_Wrap = false,
+							TEC_ReadOnly = false,
+							INP_External = false,
+						},
+						near_output = {
+							LINKS_Name = "near_schedule",
+							LINKID_DataType = "Text",
+							INPID_InputControl = "TextEditControl",
+							TEC_Lines = 1,
+							TEC_Wrap = false,
+							TEC_ReadOnly = false,
+							INP_External = false,
+						},
+						far_output = {
+							LINKS_Name = "far_schedule",
+							LINKID_DataType = "Text",
+							INPID_InputControl = "TextEditControl",
+							TEC_Lines = 1,
+							TEC_Wrap = false,
+							TEC_ReadOnly = false,
+							INP_External = false,
+						},
 						seed_output = {
 							LINKS_Name = "seed_schedule",
 							LINKID_DataType = "Text",
@@ -653,7 +762,7 @@
 							BTNCS_Execute = [[
 comp:Lock()
 local spline, splineout, splinedata
-local Prompt_string, Angle_string, Zoom_string, TX_string, TY_string, TZ_string, RX_string, RY_string, RZ_string, Theta_string, Phi_string, Gamma_string, FV_string, Noise_string, Strength_string, Contrast_string, Cfg_string, Seed_string = "","","","","","","","","","","","","","","","","",""
+local Prompt_string, Angle_string, Zoom_string, TX_string, TY_string, TZ_string, RX_string, RY_string, RZ_string, Theta_string, Phi_string, Gamma_string, FV_string, Noise_string, Strength_string, Contrast_string, Cfg_string, FOV_string, Near_string, Far_string, Seed_string = "","","","","","","","","","","","","","","","","","","","",""
 
 local function KeyframesToString(outstring) --function to get list of keyframes and values and output to a string. Operates on variable 'splineout' which contains a reference to the input name
 	local Key_table = {}
@@ -711,6 +820,9 @@ splineout = tool.InputNoise:GetConnectedOutput() ; Noise_string = KeyframesToStr
 splineout = tool.InputStrength:GetConnectedOutput() ; Strength_string = KeyframesToString(Strength_string)
 splineout = tool.InputContrast:GetConnectedOutput() ; Contrast_string = KeyframesToString(Contrast_string)
 splineout = tool.InputCfg:GetConnectedOutput() ; Cfg_string = KeyframesToString(Cfg_string)
+splineout = tool.InputFOV:GetConnectedOutput() ; FOV_string = KeyframesToString(FOV_string)
+splineout = tool.InputNear:GetConnectedOutput() ; Near_string = KeyframesToString(Near_string)
+splineout = tool.InputFar:GetConnectedOutput() ; Far_string = KeyframesToString(Far_string)
 splineout = tool.InputSeed:GetConnectedOutput() ; Seed_string = KeyframesToString(Seed_string)
 
 tool.OutputPrompt = Prompt_string
@@ -730,6 +842,9 @@ tool.OutputNoise = Noise_string
 tool.OutputStrength = Strength_string
 tool.OutputContrast = Contrast_string
 tool.OutputCfg = Cfg_string
+tool.OutputFOV = FOV_string
+tool.OutputNear = Near_string
+tool.OutputFar = Far_string
 tool.OutputSeed = Seed_string
 comp:Unlock()
 							]],
