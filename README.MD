@@ -1,11 +1,9 @@
 # DeforumKeyframer
 
 ## What's New
-[Version 0.2](https://github.com/Zarxrax/DeforumKeyframer/releases/tag/v0.2)
-- Added new controls: cfg_scale_schedule and seed_schedule
-- Changed prompt format to be compatible with Deforum for AUTOMATIC1111
-- Moved some controls into collapsible groups
-- Bugfixes
+[Version 0.3](https://github.com/Zarxrax/DeforumKeyframer/releases/tag/v0.3)
+- Added new controls: fov_schedule, near_schedule, and far_schedule
+- Adjusted some default values and supported ranges
 
 ## What this is
 This is a macro for Davinci Resolve/Fusion to assist with creating keyframes for Deforum Stable Diffusion. You can view your keyframes on the timeline, making it easier to visualize your animation or synchronize to music and video.
@@ -16,7 +14,7 @@ This does not bring Stable Diffusion into Davinci Resolve. It simply generates a
 ## Installation
 ### Prerequisites
 - https://www.blackmagicdesign.com/products/davinciresolve/
-- https://deforum.github.io/
+- https://deforum.github.io/ or https://github.com/deforum-art/deforum-for-automatic1111-webui
 
 ### Download
 Download DeforumKeyframer.drfx from the [releases](https://github.com/Zarxrax/DeforumKeyframer/releases) page
